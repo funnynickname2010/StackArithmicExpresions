@@ -21,6 +21,7 @@ public:
 
 	TStack();
 	explicit TStack(size_t maxsize);
+	~TStack();
 };
 
 template<class T>
@@ -38,7 +39,7 @@ inline bool TStack<T>::Full() const noexcept
 template<class T>
 inline void TStack<T>::Push(const T obj)
 {
-	if (!this->Full)
+	if (!this->Full())
 	{
 		arr[top++] = obj;
 	}
@@ -55,8 +56,11 @@ inline void TStack<T>::Push(const T obj)
 				temp_ptr[i] = arr[i];
 			}
 
+			delete[] arr;
+
 			arr = temp_ptr;
-			mx = memory_to_allocate;			
+
+			mx = memory_to_allocate;
 		}
 		else
 		{
@@ -68,9 +72,10 @@ inline void TStack<T>::Push(const T obj)
 template<class T>
 inline T TStack<T>::Pull()
 {
-	if (!this->Empty)
+	if (!this->Empty())
 	{
-		return arr[top--];
+		top--;
+		return arr[top];
 	}
 	else
 	{
@@ -97,4 +102,12 @@ inline TStack<T>::TStack(size_t maxsize)
 	{
 		throw std::exception("TStack<T>::TStack(size_t maxsize) error: memory allocation failure.\n");
 	}
+}
+
+template<class T>
+inline TStack<T>::~TStack()
+{
+	delete[] arr;
+	mx = 0;
+	top = 0;
 }
