@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#define CONST_MEM_MULT 2
+#define CONST_MEM_MULT 8
 #define CONST_MEM_ADD 1
 
 template <class T>
@@ -10,11 +10,11 @@ class TStack
 	T* arr;
 	size_t top;
 	size_t mx;
+	
+public:
 
 	bool Empty() const noexcept;
 	bool Full() const noexcept;
-
-public:
 
 	void Push(const T obj);
 	T Pull();

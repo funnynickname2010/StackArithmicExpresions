@@ -127,12 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="TArithmicEquation.h" />
+    <ClInclude Include="TArithmeticEquation.h" />
     <ClInclude Include="TStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="TArithmicEquation.cpp" />
+    <ClCompile Include="TArithmeticEquation.cpp" />
     <ClCompile Include="TStack.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

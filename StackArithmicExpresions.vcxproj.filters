@@ -18,7 +18,7 @@
     <ClInclude Include="TStack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TArithmicEquation.h">
+    <ClInclude Include="TArithmeticEquation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,7 +26,7 @@
     <ClCompile Include="TStack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TArithmicEquation.cpp">
+    <ClCompile Include="TArithmeticEquation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">
