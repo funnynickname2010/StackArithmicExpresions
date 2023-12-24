@@ -39,15 +39,14 @@ inline bool TStack<T>::Full() const noexcept
 template<class T>
 inline void TStack<T>::Push(const T obj)
 {
-	if (!this->Full())
+	if (this->Full())
 	{
-		arr[top++] = obj;
-	}
-	else
-	{
-		size_t memory_to_allocate = ((mx + CONST_MEM_ADD) * CONST_MEM_MULT);
+		size_t memory_to_allocate;
 
-		T* temp_ptr = new T(memory_to_allocate);
+		if (mx == 0) { memory_to_allocate = mx + CONST_MEM_ADD; }
+		else { memory_to_allocate = mx * CONST_MEM_MULT; }
+
+		T* temp_ptr = new T[memory_to_allocate];
 
 		if (temp_ptr != nullptr)
 		{
@@ -67,6 +66,8 @@ inline void TStack<T>::Push(const T obj)
 			throw std::exception("void TStack<T>::Push(const T obj) error: memory allocation failure.\n");
 		}
 	}
+
+	arr[top++] = obj;
 }
 
 template<class T>
