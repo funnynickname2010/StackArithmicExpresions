@@ -45,7 +45,35 @@ void TArithmeticEquation::Parse(string input)
 
 		if (is_a_number)
 		{
-			lexems.push_back(vec_input[i]);
+			string temp(vec_input[i]);
+			size_t dot_count = 0;
+
+			for (int j = i + 1; j < (vec_input.size() ) ; j++)
+			{
+				if (vec_input[j] == "." && dot_count < 1)
+				{
+					dot_count++;
+					temp = temp + vec_input[j];
+				}
+
+				try
+				{
+					if (vec_input[j] != ".") {
+						stod(vec_input[j]);
+						temp = temp + vec_input[j];
+					}
+					i = j;
+				}
+				catch (invalid_argument)
+				{
+					if (vec_input[j] != "")
+					{
+						break;
+					}
+				}				
+			}
+
+			lexems.push_back(temp);
 		}
 		else
 		{

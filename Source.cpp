@@ -31,7 +31,13 @@ int main()
 	}
 	cout << endl;
 
-	cout << endl << "Result: " << equation.GetInfix() << " = " << equation.Calculate(operands);
+	try {
+		cout << endl << "Result: " << equation.GetInfix() << " = " << equation.Calculate(operands);
+	}
+	catch (std::exception& e)
+	{
+		cout << endl << e.what();
+	}
 
 	//STACK TESTING CODE STARTS HERE
 
